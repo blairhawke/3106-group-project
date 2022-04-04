@@ -1,6 +1,11 @@
 import numpy as np
 import random
 
+#practice = np.array ([  [0, 0, 2, 2],
+#                        [0, 0, 0, 2],
+#                        [0, 0, 4, 0],
+#                        [0, 0, 0, 2]    ])
+
 class protectTurn():
     protect = []
 
@@ -28,7 +33,7 @@ def startGame():
                 #place initial number in random coordinates
                 startingArray[x][i] = randomInitNum
     print("Starting array: ")
-    print(startingArray)
+    #print(startingArray)
     return startingArray
 
 #print(startGame())
@@ -212,6 +217,10 @@ def movement(array, direction):
             addRandomNum(array)
             print(array)
 
+    if (direction == "exit"):
+        exit()
+            
+
     #returns array after given direction
     return array
 
@@ -234,16 +243,22 @@ def addRandomNum(array):
     return array
 
 
-practice = np.array ([  [4, 0, 2, 2],
-                        [0, 0, 0, 2],
-                        [0, 0, 4, 0],
-                        [0, 0, 0, 2]    ])
 
-#startingArray = startGame()
-#secondPassDirection = movement(startingArray, "down")
-#thirdPassDirection = movement(secondPassDirection, "left")
-#fourthPassDirection = movement(thirdPassDirection, "right")
-#fifthPassDirection = movement(fourthPassDirection, "up")
-fifthPassDirection = movement(practice, "right")
+def playGame():
+    print("Here is your initial board state")
+    temp = startGame()
+    #Copy the startGame() array with 'arrCopy'
+    arrCopy = temp
+    print(arrCopy)
+    
+    #Infinite loop so far.
+    #Moves in direction specified.
+    #Uses newly formed board as the start of the next move.
+    #Exit to quit program.
+    while (1):
+        movement(arrCopy,input("\n Enter a direction (up, down, left, right). Type exit to quit.\n"))
+        arrCopy = movement(arrCopy,input("\n Enter a direction (up, down, left, right). Type exit to quit.\n"))
 
 
+#Start the program
+playGame()
