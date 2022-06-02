@@ -1,3 +1,4 @@
+(The 2048 download is only a prototype of the final version. You are able to play the game to completion, but there is no AI element.)
 # 3106-group-project
 
 Blair Hawke,
